@@ -1,16 +1,16 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+    <div class="mb-4 text-sm text-muted">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>
 
-    <form method="POST" action="{{ route('password.confirm') }}">
+    <form method="POST" action="{{ route('password.confirm') }}" class="container">
         @csrf
 
         <!-- Password -->
-        <div>
+        <div class="form-group">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="form-control"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -18,10 +18,10 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
+        <div class="d-flex justify-content-end mt-4">
+            <button type="submit" class="btn btn-primary">
                 {{ __('Confirm') }}
-            </x-primary-button>
+            </button>
         </div>
     </form>
 </x-guest-layout>
