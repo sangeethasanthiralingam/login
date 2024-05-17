@@ -39,7 +39,6 @@
                         <th>Name</th>
                         <th>Qty</th>
                         <th>Price</th>
-                        <th>Category</th>
                         <th>Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -49,10 +48,9 @@
                     @foreach($products as $product)
                         <tr>
                             <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->title }}</td>
                             <td>{{ $product->qty }}</td>
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->category }}</td>
                             <td>{{ $product->description }}</td>
                             <td>
                                 <a href="{{ route('product.edit', ['product' => $product]) }}" class="btn btn-primary">Edit</a>

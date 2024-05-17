@@ -21,7 +21,7 @@
         @method('post')
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" id="name" placeholder="Name" />
+            <input type="text" name="title" class="form-control" id="title" placeholder="Name" />
         </div>
         <div class="form-group">
             <label for="qty">Qty</label>

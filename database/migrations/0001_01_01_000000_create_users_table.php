@@ -17,6 +17,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('suffix', 20)->nullable();
+            $table->string('contact_primary', 25)->nullable();
+            $table->string('landline_number', 25)->nullable();
+            $table->date('dob')->nullable();
+            $table->string('gender', 10)->nullable();
+            $table->string('pronouns', 100)->nullable();
+            $table->string('img', 200)->nullable();
+            $table->enum('status', ['ACTIVE', 'IN_ACTIVE'])->nullable();
+            $table->enum('type', ['seller', 'customer'])->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });

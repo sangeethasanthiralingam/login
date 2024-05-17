@@ -18,16 +18,46 @@
 
         <!-- Password -->
         <div class="form-group mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <div class="form-group mt-4">
+                <x-input-label for="password" :value="__('Password')" />
+                <div class="input-group">
+                    <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="new-password" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <input type="checkbox" onclick="togglePasswordVisibility('password')" class="form-check-input">
+                            <label class="form-check-label" for="showPassword">{{ __('Show Password') }}</label>
+                        </div>
+                    </div>
+                </div>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+
         </div>
 
         <!-- Confirm Password -->
         <div class="form-group mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
+            <div class="input-group">
+                <x-text-input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <input type="checkbox" onclick="togglePasswordVisibility('password_confirmation')" class="form-check-input">
+                        <label class="form-check-label" for="showPasswordConfirmation">{{ __('Show Password') }}</label>
+                    </div>
+                </div>
+            </div>
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+
+        <!-- User Type -->
+        <div class="form-group mt-4">
+            <x-input-label for="type" :value="__('User Type')" />
+            <select id="type" name="type" class="form-control">
+                <option value="seller">Seller</option>
+                <option value="customer">Customer</option>
+            </select>
+            <x-input-error :messages="$errors->get('type')" class="mt-2" />
         </div>
 
         <div class="d-flex justify-content-between align-items-center mt-4">
@@ -41,3 +71,13 @@
         </div>
     </form>
 </x-guest-layout>
+<script>
+    function togglePasswordVisibility(fieldId) {
+        const field = document.getElementById(fieldId);
+        if (field.type === "password") {
+            field.type = "text";
+        } else {
+            field.type = "password";
+        }
+    }
+</script>
