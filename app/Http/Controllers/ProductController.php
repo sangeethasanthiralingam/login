@@ -10,9 +10,21 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', ['products' => $products]);
+        // Ensure the user is authenticated
+        if (Auth::check()) {
+            $userType = Auth::user()->type;
+
+            if ($userType == 'seller') {
+                $products = Product::all();
+                return view('products.index', ['products' => $products]);
+            } else {
+                return redirect()->route('login'); // Redirect to login route
+            }
+        } else {
+            return redirect()->route('login'); // Redirect to login route if not authenticated
+        }
     }
+
 
     public function search(Request $request)
     {
@@ -74,7 +86,7 @@ class ProductController extends Controller
             'price' => 'required|decimal:0,2',
             'description' => 'nullable'
         ]);
-        
+
         $data['seller_id'] = Auth::id();
 
         $product->update($data);

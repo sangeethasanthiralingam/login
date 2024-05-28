@@ -23,13 +23,9 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request): RedirectResponse
     {
+        // Validate the incoming request
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -48,13 +44,9 @@ class RegisteredUserController extends Controller
         // If the user is a seller, create a seller record
         if ($request->type === 'seller') {
             Seller::create(['user_id' => $user->id]);
+            return redirect(route('seller.portal')); // Redirect to seller portal
+        } else {
+            return redirect(route('customer.portal')); // Redirect to customer portal
         }
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('dashboard'));
     }
-    
 }

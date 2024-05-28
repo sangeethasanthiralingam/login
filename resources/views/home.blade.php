@@ -12,7 +12,9 @@
         .custom-btn {
             margin-right: 10px;
         }
-
+        .container{
+            padding: 0px;
+        }
         .footer {
             position: absolute;
             bottom: 0;

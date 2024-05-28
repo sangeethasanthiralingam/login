@@ -1,17 +1,16 @@
 <nav x-data="{ open: false }" class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Primary Navigation Menu -->
     <div class="container">
-        <a class="navbar-brand" href="{{ route('dashboard') }}">
+        <a class="navbar-brand" href="{{ Auth::user()->isSeller() ? route('seller.portal') : route('customer.portal') }}">
             <x-application-logo class="h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-nav-link :href="route('customer.portal')" :active="request()->routeIs('customer.portal')">
                     {{ __('Dashboard') }}
                 </x-nav-link>
             </ul>
-
             <!-- Settings Dropdown -->
             <div class="navbar-nav ms-auto">
                 <div class="nav-item dropdown">
@@ -40,7 +39,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'show': open}" class="collapse navbar-collapse">
         <ul class="navbar-nav">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+        <x-nav-link :href="route('customer.portal')" :active="request()->routeIs('customer.portal')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </ul>
