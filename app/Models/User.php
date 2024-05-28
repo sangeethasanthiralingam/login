@@ -20,8 +20,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'suffix',
+        'contact_primary',
+        'landline_number',
+        'dob',
+        'gender',
+        'pronouns',
+        'img',
+        'status',
+        'type',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,5 +51,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function isSeller()
+    {
+        return $this->role === 'seller';
+    }
+
+    public function isCustomer()
+    {
+        return $this->role === 'customer';
     }
 }
