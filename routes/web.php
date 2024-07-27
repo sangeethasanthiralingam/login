@@ -1,13 +1,17 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VegetableController;
 use Illuminate\Support\Facades\Route;
 
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -53,5 +57,12 @@ Route::get('/products/filter', [ProductController::class,'filter'])->name('produ
 // Route::get('/customer-portal', [CustomerController::class, 'index'])->name('customer.portal');
 
 Route::resource('vegetables', VegetableController::class);
+// routes/web.php
+
+Route::get('/contact', function () {
+    return view('nav\contact');
+})->name('contact');
+
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 require __DIR__ . '/auth.php';
