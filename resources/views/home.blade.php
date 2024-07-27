@@ -12,9 +12,11 @@
         .custom-btn {
             margin-right: 10px;
         }
-        .container{
+
+        .container {
             padding: 0px;
         }
+
         .footer {
             position: absolute;
             bottom: 0;
@@ -47,12 +49,17 @@
                         <a class="nav-link" href="{{('about-us')}}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="L.Pages/Contact.html">Contact</a>
+                        <a class="nav-link" href="{{('contact')}}">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="L.Pages/Feedback.html">Feedback</a>
                     </li>
                 </ul>
+                @if(Session::has('message'))
+                <div class="alert alert-success mt-4">
+                    {{ Session::get('message') }}
+                </div>
+                @endif
                 <div class="d-flex">
                     @if (Route::has('login'))
                     @auth
@@ -87,6 +94,7 @@
                 <img src="Website/vegetables-fruit-mixed-basket.png" class="img-fluid" alt="Mixed Vegetables">
             </div>
         </div>
+
     </div>
     <footer class="footer">
         <div class="container text-center">
