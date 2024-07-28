@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VegetableController;
@@ -64,5 +65,10 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/feedback', function () {
+    return view('nav\feedback');
+})->name('feedback');
+
+Route::post('/feedback/submit', [FeedbackController::class, 'submit'])->name('feedback.submit');
 
 require __DIR__ . '/auth.php';

@@ -52,7 +52,7 @@
                         <a class="nav-link" href="{{('contact')}}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="L.Pages/Feedback.html">Feedback</a>
+                        <a class="nav-link" href="{{('feedback')}}">Feedback</a>
                     </li>
                 </ul>
                 @if(Session::has('message'))
