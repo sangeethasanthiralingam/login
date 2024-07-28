@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ProductController;
@@ -70,5 +71,9 @@ Route::get('/feedback', function () {
 })->name('feedback');
 
 Route::post('/feedback/submit', [FeedbackController::class, 'submit'])->name('feedback.submit');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 require __DIR__ . '/auth.php';

@@ -9,7 +9,7 @@
             <a href="{{ url('/') }}">
                 <img src="Website/Veg World Logo.png" width="125px">
             </a>
-            <a href="L.Pages/cart.html" class="float-right">
+            <a href="{{('cart')}}" class="float-right">
                 <img src="Website/shopping cart.png" width="50px" height="50px"></a>
             <h1>Believe in your hard work<br>Get quality from the producer yourself</h1>
         </div>

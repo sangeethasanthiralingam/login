@@ -40,7 +40,7 @@
             @endif
             @endauth
             @endif
-            <a href="L.Pages/cart.html" class="btn btn-primary custom-btn">
+            <a href="{{('cart')}}" class="btn btn-primary custom-btn">
                 <img src="Website/shopping cart.png" width="30" height="30" class="d-inline-block align-top" alt="">
             </a>
         </div>

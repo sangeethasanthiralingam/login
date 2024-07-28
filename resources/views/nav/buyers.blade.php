@@ -4,24 +4,27 @@
 
 @push('styles')
 <style>
-    /* Add custom styles here */
     .jumbotron {
         background-color: #f8f9fa;
         padding: 30px;
         margin-top: 20px;
         text-align: center;
     }
+
     .logo {
         max-width: 125px;
         margin-bottom: 20px;
     }
+
     .cart-icon {
         float: right;
     }
+
     .customer-img {
         max-width: 100%;
         margin-bottom: 20px;
     }
+
     .continue-link {
         display: block;
         margin-top: 20px;
@@ -37,7 +40,7 @@
         <a href="{{ url('/') }}">
             <img src="Website/Veg World Logo.png" class="logo">
         </a>
-        <a href="L.Pages/cart.html" class="cart-icon">
+        <a href="{{('cart')}}" class="cart-icon">
             <img src="Website/shopping cart.png" width="50px" height="50px">
         </a>
         <h1>Believe in your hard work<br>Get quality from the producer yourself</h1>

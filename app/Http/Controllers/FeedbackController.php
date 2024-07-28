@@ -24,6 +24,6 @@ class FeedbackController extends Controller
         Session::flash('message', 'Your feedback has been sent successfully!');
 
         // Redirect back to the feedback page or home page
-        return redirect()->route('feedback');
+        return redirect()->route('home');
     }
 }
